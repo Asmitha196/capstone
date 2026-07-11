@@ -52,6 +52,10 @@ async def get_db():
     async with SessionLocal() as db:
         try:
             yield db
+            await db.commit()
+        except Exception:
+            await db.rollback()
+            raise
         finally:
             await db.close()
 # generator - uses yield and after it uses it can be used in try block 
