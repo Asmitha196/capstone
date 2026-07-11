@@ -8,6 +8,7 @@ import {
   User,
   LogOut,
   Sparkles,
+  Target,
 } from "lucide-react";
 
 interface SidebarProps {
@@ -22,6 +23,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ user, onLogout }) => {
     { name: "Dashboard", path: "/", icon: LayoutDashboard },
     { name: "Browse Jobs", path: "/jobs", icon: Briefcase },
     { name: "Resume Analyzer", path: "/resume-analyzer", icon: FileText },
+    { name: "Interview Prep", path: "/interview-prep", icon: Target },
     { name: "AI Career Chat", path: "/chat", icon: MessageSquare },
     { name: "Profile", path: "/profile", icon: User },
   ];

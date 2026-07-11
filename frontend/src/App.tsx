@@ -8,6 +8,7 @@ import { DashboardPage } from "./pages/DashboardPage";
 import { JobsPage } from "./pages/JobsPage";
 import { ResumePage } from "./pages/ResumePage";
 import { ChatPage } from "./pages/ChatPage";
+import { InterviewPrepPage } from "./pages/InterviewPrepPage";
 import { ProfilePage } from "./pages/ProfilePage";
 
 export const App: React.FC = () => {
@@ -66,6 +67,7 @@ export const App: React.FC = () => {
                 <Route path="/" element={<DashboardPage />} />
                 <Route path="/jobs" element={<JobsPage />} />
                 <Route path="/resume-analyzer" element={<ResumePage />} />
+                <Route path="/interview-prep" element={<InterviewPrepPage />} />
                 <Route path="/chat" element={<ChatPage />} />
                 <Route path="/profile" element={<ProfilePage onProfileUpdate={handleProfileUpdate} />} />
               </Route>
