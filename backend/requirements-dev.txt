@@ -1,0 +1,13 @@
+# ── Dev / Test ────────────────────────────────────────────────────────────────
+-r requirements.txt
+
+pytest==8.3.4
+pytest-asyncio==0.24.0
+httpx==0.28.1                     # Async test client for FastAPI
+anyio==4.7.0
+aiosqlite==0.20.0
+
+
+# ── Linting / Formatting ──────────────────────────────────────────────────────
+ruff==0.8.4
+mypy==1.13.0
