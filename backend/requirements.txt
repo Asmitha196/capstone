@@ -1,35 +1,35 @@
 # ── Web Framework ─────────────────────────────────────────────────────────────
-fastapi==0.115.5
-uvicorn[standard]==0.32.1
-python-multipart==0.0.12          # File upload support
+fastapi==0.115.13
+uvicorn[standard]==0.35.0
+python-multipart==0.0.20
 
 # ── Database ──────────────────────────────────────────────────────────────────
-sqlalchemy[asyncio]==2.0.36
-asyncpg==0.30.0                   # Async PostgreSQL driver
-alembic==1.14.0                   # DB migrations
+sqlalchemy[asyncio]==2.0.43
+asyncpg==0.30.0
+alembic==1.16.4
 
 # ── Config / Validation ───────────────────────────────────────────────────────
-pydantic==2.10.3
-pydantic-settings==2.6.1
-pydantic[email]==2.10.3           # EmailStr support
+pydantic==2.11.7
+pydantic-settings==2.10.1
+email-validator>=2.2.0
 
 # ── Auth / Security ───────────────────────────────────────────────────────────
-python-jose[cryptography]==3.3.0  # JWT encode/decode
-passlib[bcrypt]==1.7.4            # Password hashing
+python-jose[cryptography]==3.5.0
+passlib[bcrypt]==1.7.4
 
-# ── AI / LLM ─────────────────────────────────────────────────────────────────
-langchain==0.3.13
-langchain-groq==0.2.3             # Groq LLM via LangChain
-fastembed>=0.5.0                  # FastEmbed for local embeddings
+# ── AI / LLM ──────────────────────────────────────────────────────────────────
+langchain==0.3.27
+langchain-groq==0.3.8
+fastembed>=0.7.3
 
 # ── Vector Store ──────────────────────────────────────────────────────────────
-qdrant-client==1.12.1
+qdrant-client==1.15.1
 
-# ── AWS S3 ───────────────────────────────────────────────────────────────────
-boto3==1.35.81
+# ── AWS S3 ────────────────────────────────────────────────────────────────────
+boto3==1.40.8
 
-# ── HTTP Client (LangChain / internal) ───────────────────────────────────────
+# ── HTTP Client ───────────────────────────────────────────────────────────────
 httpx==0.28.1
 
 # ── Utilities ─────────────────────────────────────────────────────────────────
-python-dotenv==1.0.1
+python-dotenv==1.1.1
