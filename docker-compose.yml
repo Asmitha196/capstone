@@ -40,9 +40,6 @@ services:
     restart: unless-stopped
     env_file:
       - ./backend/.env
-    environment:
-      POSTGRES_HOST: postgres
-      QDRANT_HOST: qdrant
     ports:
       - "8000:8000"
     depends_on:
@@ -50,8 +47,6 @@ services:
         condition: service_healthy
       qdrant:
         condition: service_started
-    volumes:
-      - ./backend:/app    # Hot-reload in dev (remove in production)
 
   # ── Frontend ────────────────────────────────────────────────────────────────
   frontend:
