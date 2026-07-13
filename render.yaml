@@ -1,0 +1,63 @@
+services:
+  # ── Backend Web Service (FastAPI via Docker) ────────────────────────────────
+  - type: web
+    name: job-assistant-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    healthCheckPath: /health
+    envVars:
+      # ── Application ──────────────────────────────────────────────────────────
+      - key: APP_NAME
+        value: AI Job Recommendation Assistant
+      - key: APP_VERSION
+        value: "1.0.0"
+      - key: DEBUG
+        value: "false"
+      - key: ENVIRONMENT
+        value: production
+
+      # ── CORS — will be updated after Vercel deployment ────────────────────────
+      # Set this to your Vercel URL, e.g.: https://your-app.vercel.app
+      - key: ALLOWED_ORIGINS
+        value: "https://your-app.vercel.app,http://localhost:5173"
+
+      # ── Database (Supabase PostgreSQL) ────────────────────────────────────────
+      - key: DATABASE_URL
+        sync: false   # Enter value in Render dashboard (secret)
+
+      # ── JWT ──────────────────────────────────────────────────────────────────
+      - key: JWT_SECRET_KEY
+        sync: false   # Enter value in Render dashboard (secret)
+      - key: JWT_ALGORITHM
+        value: HS256
+      - key: JWT_ACCESS_TOKEN_EXPIRE_MINUTES
+        value: "30"
+      - key: JWT_REFRESH_TOKEN_EXPIRE_DAYS
+        value: "7"
+
+      # ── AWS S3 ───────────────────────────────────────────────────────────────
+      - key: AWS_ACCESS_KEY_ID
+        sync: false   # Enter in Render dashboard
+      - key: AWS_SECRET_ACCESS_KEY
+        sync: false   # Enter in Render dashboard
+      - key: AWS_REGION
+        value: us-east-1
+      - key: AWS_S3_BUCKET_NAME
+        value: job-assistant-bucket
+
+      # ── Qdrant Cloud ─────────────────────────────────────────────────────────
+      - key: QDRANT_URL
+        sync: false   # Enter in Render dashboard
+      - key: QDRANT_API_KEY
+        sync: false   # Enter in Render dashboard
+
+      # ── Groq LLM ─────────────────────────────────────────────────────────────
+      - key: GROQ_API_KEY
+        sync: false   # Enter in Render dashboard
+      - key: GROQ_MODEL
+        value: llama-3.1-8b-instant
+
+      # ── Logging ──────────────────────────────────────────────────────────────
+      - key: LOG_LEVEL
+        value: INFO
